@@ -94,5 +94,7 @@ document.querySelector('#search').addEventListener('input', function() {
         console.error(e)
       }
     })
+  } else { // If there's one or less characters in the search box, clear the results
+    $results.innerHTML = ''
   }
 })
