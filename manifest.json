@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+
+  "name": "PCPartPicker",
+  "description": "Quickly search for computer components using PCPartPicker",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "https://www.pcpartpicker.com/*",
+    "http://www.pcpartpicker.com/*"
+  ]
+}
