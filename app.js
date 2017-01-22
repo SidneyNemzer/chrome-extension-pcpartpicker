@@ -72,9 +72,10 @@ function createProductLink(name, link) {
 
 // We'll need this element later
 const $results = document.querySelector('#results')
+const $search = document.querySelector('#search')
 
 // Add the event listener to the seach box
-document.querySelector('#search').addEventListener('input', function() {
+$search.addEventListener('input', function() {
   if (this.value.length > 1) { // Only search if user has input more than one character
     console.log('Starting request...')
     request({
@@ -98,3 +99,5 @@ document.querySelector('#search').addEventListener('input', function() {
     $results.innerHTML = ''
   }
 })
+
+$search.focus() // Finally, focus the search box
