@@ -8,6 +8,19 @@ function request(options, callback) {
   xhr.send()
 }
 
+// Helper function to copy text to clipboard which doesn't use a hidden DOM element
+function copyToClipboard(text) {
+  function copyHandler(event) { // Define our event handler
+    event.preventDefault() // Stop other things from reacting to the copy
+    event.stopPropagation()
+    event.clipboardData.setData('text/plain', text) // Replace the data with our own data
+    document.removeEventListener('oncopy', copyHandler) // Finally remove this listner from the 'copy' event
+  }
+
+  document.addEventListener('copy', copyHandler) // Attach the event listener to the 'copy' event
+  document.execCommand('copy') // Make browser execute the 'copy' action
+}
+
 // Helper function to create an HTML element
 function createElement(tagName, innerText, attributes) {
   tagName = tagName || 'div'
@@ -24,6 +37,13 @@ function createElement(tagName, innerText, attributes) {
   })
   console.log(ele)
   return ele
+}
+
+// Handles clicks on a 'copy' button
+function copyPartURL(event) {
+  const $anchor = event.target.parentNode.children[0]
+
+  copyToClipboard($anchor.href)
 }
 
 // Creates the 'product link', which is a list item with an anchor and button inside
@@ -44,6 +64,7 @@ function createProductLink(name, link) {
       'class': 'action'
     }
   )
+  button.addEventListener('click', copyPartURL)
   listItem.appendChild(anchor)
   listItem.appendChild(button)
   return listItem
