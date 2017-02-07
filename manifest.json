@@ -3,7 +3,7 @@
 
   "name": "PCPartPicker",
   "description": "Quickly search for computer components using PCPartPicker",
-  "version": "1.0",
+  "version": "0.1",
 
   "icons": {
     "96": "icon.png"
