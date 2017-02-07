@@ -5,6 +5,10 @@
   "description": "Quickly search for computer components using PCPartPicker",
   "version": "1.0",
 
+  "icons": {
+    "96": "icon.png"
+  },
+
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
